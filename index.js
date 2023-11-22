@@ -49,7 +49,6 @@ function addBookToTable(book) {
     td[3].appendChild(buildBookRemoveBtn(book, td[3]));
 
     tbody.appendChild(clone);
-    tbody.lastElementChild.setAttribute("data-book", myLibrary.indexOf(book));
   }
 }
 
@@ -82,9 +81,6 @@ function submitClick(event) {
 function buildBookRemoveBtn(book) {
   const removeBtn = document.createElement("button");
   removeBtn.textContent = "Delete";
-  const attribute = document.createAttribute("data-book");
-  attribute.value = book.dataBook;
-  removeBtn.setAttributeNode(attribute);
 
   removeBtn.addEventListener("click", () => removeBook(book));
 
