@@ -45,11 +45,24 @@ function addBookToTable(book) {
     th.textContent = book.title;
     td[0].textContent = book.author;
     td[1].textContent = book.pages;
-    td[2].textContent = book.isRead;
+    td[2].appendChild(isReadBtn(book, td[2]));
+    // td[2].textContent = book.isRead;
     td[3].appendChild(buildBookRemoveBtn(book, td[3]));
 
     tbody.appendChild(clone);
   }
+}
+
+function isReadBtn(book) {
+  const readBtn = document.createElement("button");
+  readBtn.textContent = book.isRead;
+
+  readBtn.addEventListener("click", () => {
+    book.isRead = !book.isRead;
+    logLibrary(myLibrary, tbody);
+  });
+
+  return readBtn;
 }
 
 function addLibraryToTable(library) {
