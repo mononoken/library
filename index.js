@@ -11,17 +11,19 @@ document
 const myLibrary = [];
 const tbody = document.querySelector("tbody");
 
-function Book(title, author, pages, isRead) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.isRead = isRead;
+class Book {
+  constructor(title, author, pages, isRead) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.isRead = isRead;
+  }
 
-  this.info = function () {
+  info() {
     return `${this.title} by ${this.author}, ${this.pages} pages, ${
       this.isRead ? "read" : "not read yet"
     }`;
-  };
+  }
 }
 
 function logLibrary(library, tbody) {
